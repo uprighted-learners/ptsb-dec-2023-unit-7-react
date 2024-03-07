@@ -17,18 +17,20 @@ function App() {
 
   return (
     <>
-      <Nav tabs={tabs} />
-      <h1>React App Intro Lesson</h1>
-      <h3>Learners in PTSB Dec 2023:</h3>
-      <ul>
-        {learners.map(student => {
-          return (
-            <li className="learner-name" key={`studentName-${student}`}>
-              {student}
-            </li>
-          )
-        })}
-      </ul>
+      <main>
+        <Nav tabs={tabs} />
+        <h1>React App Intro Lesson</h1>
+        <h3>Learners in PTSB Dec 2023:</h3>
+        <ul>
+          {learners.map(student => {
+            return (
+              <li className="learner-name" key={`studentName-${student}`}>
+                {student}
+              </li>
+            )
+          })}
+        </ul>
+      </main>
       <Nav tabs={["About Me", "Contact", "More Stuff"]} />
     </>
   )
