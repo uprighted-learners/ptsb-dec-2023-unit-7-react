@@ -27,6 +27,7 @@ function Counter() {
   // except that the variable names don't have to match any keys
   // instead, the values are in order, by index
 
+  // the hook has to be called at the top level of a function-based component
   let [count, setCount] = useState(0)
 
   const increment = () => {
