@@ -1,0 +1,9 @@
+.book {
+  border: 2px solid rgb(106, 27, 109);
+  padding: 0.7em;
+  background-color: rgb(247, 235, 220);
+}
+
+.book-title {
+  font-weight: 900;
+}

@@ -1,4 +1,5 @@
 import "./content-box.css"
+import { useEffect } from "react"
 
 function ContentBox({ title, contentList, setContentList }) {
   const handleDelete = listItem => {
@@ -6,6 +7,10 @@ function ContentBox({ title, contentList, setContentList }) {
     let newList = [...contentList].filter(c => c !== listItem)
     setContentList(newList)
   }
+
+  useEffect(() => {
+    console.log("effect ran from content-box")
+  }, [])
 
   return (
     <div className="cereal-box">

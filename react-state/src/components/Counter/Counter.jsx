@@ -1,5 +1,6 @@
 /* 
  ? Using State in React
+  state is variables that React keeps track of within a session
 
   useState(param) returns an array with two entries:
   * 0 - the param
