@@ -3,3 +3,7 @@
   flex-flow: row wrap;
   gap: 0.7em;
 }
+
+.warning {
+  color: red;
+}
