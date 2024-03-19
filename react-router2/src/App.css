@@ -1,0 +1,64 @@
+a {
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1em;
+  padding: 1em;
+  background-color: rgb(228, 215, 250);
+}
+
+header h1 {
+  margin-right: auto;
+}
+
+header a {
+  padding: 0.5em;
+  border-radius: 7px;
+}
+
+header .active {
+  color: #fff;
+  background-color: rgb(98, 33, 158);
+}
+
+main {
+  padding: 2em;
+}
+
+/* Library */
+
+#library-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.7em;
+}
+
+.warning {
+  color: red;
+}
+
+/* Book */
+
+.book {
+  border: 2px solid rgb(106, 27, 109);
+  padding: 0.7em;
+  background-color: rgb(247, 235, 220);
+}
+
+.bookLink {
+  color: #000;
+}
+
+.book-title {
+  font-weight: 900;
+}
+
+img {
+  max-width: 80vw;
+  margin-top: 1em;
+}
