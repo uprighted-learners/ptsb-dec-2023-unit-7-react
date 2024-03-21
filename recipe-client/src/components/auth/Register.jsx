@@ -1,13 +1,15 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 function Register() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [username, setUsername] = useState("")
 
+  const nav = useNavigate()
+
   const handleRegister = () => {
     // TODO: log user in
-    // TODO: success message (maybe a redirect?)
     fetch("http://localhost:4000/auth/register", {
       method: "POST",
       headers: {
@@ -21,7 +23,7 @@ function Register() {
       }),
     })
       .then(res => res.json())
-      .then(res => console.log(res))
+      .then(res => nav("/users"))
       .catch(err => console.log(err.message))
   }
 
@@ -29,7 +31,7 @@ function Register() {
     <>
       <h3>Register</h3>
       <input
-        className="auth-input"
+        className="global-input"
         type="text"
         name="username"
         placeholder="Username"
@@ -39,7 +41,7 @@ function Register() {
       />
       <br />
       <input
-        className="auth-input"
+        className="global-input"
         type="text"
         name="email"
         placeholder="Email address"
@@ -49,7 +51,7 @@ function Register() {
       />
       <br />
       <input
-        className="auth-input"
+        className="global-input"
         type="password"
         name="password"
         placeholder="Password"
@@ -58,7 +60,7 @@ function Register() {
         }}
       />
       <br />
-      <button className="auth-button" onClick={handleRegister}>
+      <button className="global-button" onClick={handleRegister}>
         Register
       </button>
     </>

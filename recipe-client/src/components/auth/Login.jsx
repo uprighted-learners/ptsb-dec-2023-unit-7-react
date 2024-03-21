@@ -1,9 +1,14 @@
 import { useState } from "react"
+import { TOKEN_KEY } from "../../constants"
+import { Link, useNavigate } from "react-router-dom"
 
+// TODO: add a log out
 function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [token, setToken] = useState("")
+  const [invalid, setInvalid] = useState(false)
+
+  const nav = useNavigate()
 
   const handleLogin = () => {
     fetch("http://localhost:4000/auth/login", {
@@ -16,12 +21,10 @@ function Login() {
       .then(res => res.json())
       .then(res => {
         if (res.token) {
-          setToken(res.token)
-          localStorage.setItem("authToken", res.token)
-          console.log(localStorage)
+          localStorage.setItem(TOKEN_KEY, res.token)
+          nav("/")
         } else {
-          console.log("invalid password")
-          // TODO: handle bad passwords
+          setInvalid(true)
         }
       })
       .catch(err => console.log(err.message))
@@ -30,7 +33,7 @@ function Login() {
   return (
     <>
       <input
-        className="auth-input"
+        className="global-input"
         type="text"
         name="email"
         placeholder="Email address"
@@ -40,21 +43,27 @@ function Login() {
       />
       <br />
       <input
-        className="auth-input"
+        className="global-input"
         type="password"
         name="password"
         placeholder="Password"
         onChange={e => {
           setPassword(e.target.value)
         }}
+        onKeyDown={e => {
+          if (e.key === "Enter") {
+            handleLogin()
+          }
+        }}
       />
+      {invalid && <span className="warning">Invalid password</span>}
       <br />
-      <button className="auth-button" onClick={handleLogin}>
+      <button className="global-button" onClick={handleLogin}>
         Login
       </button>
 
       <div>
-        No account? <a href="users/register">JOIN NOW!</a>
+        No account? <Link to="register">JOIN NOW!</Link>
       </div>
     </>
   )
